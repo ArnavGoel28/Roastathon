@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adopt a Pet</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>Adopt a Pet</h1>
+        </div>
+        <nav>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul id="nav-menu">
+                <li><a href="#adopt">Adopt</a></li>
+                <li><a href="#donate">Donate</a></li>
+                <li><a href="#volunteer">Volunteer</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- Hero Section -->
+    <section id="hero" class="parallax">
+        <div class="section-wrapper">
+            
+        </div>
+        <div class="content">
+            <h2>Find Your New Best Friend!</h2>
+            <button onclick="scrollToSection('browse-pets')">Browse Pets</button>
+        </div>
+    </section>
+
+    <section id="pets-display">
+        <div class="section-wrapper">
+            <div class="center-container">
+                <div class="child-element">
+                    <section id="featured">
+                        <h3>Featured Pets</h3>
+                        <div class="child-element">
+                            <div class="pets-container">
+                                <div class="pet-card">
+                                    <img src="images/pet1.jpg" alt="Pet 1">
+                                    <h4>Buddy</h4>
+                                    <p>Golden Retriever, 2 years old</p>
+                                </div>
+                                <div class="pet-card">
+                                    <img src="images/pet2.jpg" alt="Pet 2">
+                                    <h4>Luna</h4>
+                                    <p>Tabby Cat, 3 years old</p>
+                                </div>
+                                <div class="pet-card">
+                                    <img src="images/pet3.jpg" alt="Pet 3">
+                                    <h4>Max</h4>
+                                    <p>Bulldog, 4 years old</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button onclick="scrollToSection('browse-pets')">See All Pets</button>
+                    </section>
+                </div>
+            </div>    
+        
+            <!-- Browse Pets Section -->
+            <div class="center-container">
+                <div class="child-element">
+                    <section id="browse-pets">
+                        <h3>Browse Our Adorable Pets</h3>
+                        <div class="filter-options">
+                            <select id="animal-type">
+                                <option value="">All Animals</option>
+                                <option value="dog">Dogs</option>
+                                <option value="cat">Cats</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <select id="age">
+                                <option value="">All Ages</option>
+                                <option value="young">Young</option>
+                                <option value="adult">Adult</option>
+                                <option value="senior">Senior</option>
+                            </select>
+                        </div>
+                    </section>
+                    <div id="pets-list">
+                        <!-- Pet cards will be dynamically added here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Featured Pets Section -->
+    
+    
+
+    <section id="donate">
+        <div class="section-wrapper">
+            <h3>Make a difference today</h3>
+            <p class="quote">"Your generosity can change a pet's life forever. Every donation counts!"</p>
+            <div class="donate-options">
+                <div class="donate-option">
+                    <h4>₹500</h4>
+                    <button class="cta-button" onclick="donate(500)">Donate ₹500</button>
+                </div>
+                <div class="donate-option">
+                    <h4>₹1000</h4>
+                    <button class="cta-button" onclick="donate(1000)">Donate ₹1000</button>
+                </div>
+                <div class="donate-option">
+                    <h4>₹5000</h4>
+                    <button class="cta-button" onclick="donate(5000)">Donate ₹5000</button>
+                </div>
+            </div>
+            <div class="custom-amount">
+                <h4>Custom Amount</h4>
+                <input type="number" id="custom-amount" placeholder="Enter amount in INR">
+                <button class="cta-button" onclick="donateCustom()">Donate Custom Amount</button>
+            </div>
+            <div class="impact-stats">
+                <div class="stat">
+                    <h4>1000+</h4>
+                    <p>Pets Rescued</p>
+                </div>
+                <div class="stat">
+                    <h4>50+</h4>
+                    <p>Shelters Supported</p>
+                </div>
+                <div class="stat">
+                    <h4>5000+</h4>
+                    <p>Happy Adoptions</p>
+                </div>
+            </div>
+            <button class="cta-button">Support Now</button>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <h3>100s of Happy Stories</h3>
+        <div class="testimonial-gallery">
+            <div class="testimonial-card">
+                <img src="images/testimonial1.jpg" alt="Happy Pet 1">
+                <p>"We adopted Max, and he's brought so much joy to our family!"</p>
+            </div>
+            <div class="testimonial-card">
+                <img src="images/testimonial2.jpg" alt="Happy Pet 2">
+                <p>"Luna has been the perfect addition to our home. Thank you!"</p>
+            </div>
+            <div class="testimonial-card">
+                <img src="images/testimonial3.jpg" alt="Happy Pet 3">
+                <p>"Adopting Buddy was the best decision we've ever made."</p>
+            </div>
+            <!-- Add more testimonial cards as needed -->
+        </div>
+        <button class="cta-button">Submit your Testimonial</button>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h3>Contact Us</h3>
+        <div class="contact-info">
+            <p>Phone: +91 1234567890</p>
+            <p>Email: info@adoptapet.com</p>
+            <p>Address: 123 Pet Street, Pawsome City, 12345</p>
+        </div>
+    </section>
+
+    <!-- Other sections (Adopt, Donate, Volunteer, About, Contact) remain unchanged -->
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Pet Adoption. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
