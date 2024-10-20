@@ -1,8 +1,12 @@
 
-function scrollToSection(sectionId) {
-    document.getElementById(sectionId).scrollIntoView({
-        behavior: 'smooth'
-    });
+function scrollToSection(contact) {
+    const section = document.getElementById(contact);
+    if (section) {
+        section.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
 }
 
 function toggleMenu() {
@@ -56,7 +60,7 @@ function addPetCards() {
                 Availability: "Yes"
             }
          },
-        { name: 'Fluffy', type: 'Cat', breed: 'Maine Coon', age: '1 year', image: 'images/fluffy.jpg', 
+        { name: 'Fluffy', type: 'Cat', breed: 'Maine Coon', age: '1 year', image: 'images home/fluffy.jpg', 
             info: {
                 Owner: "John Doe",
                 Contact: "12345",
