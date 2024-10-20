@@ -15,7 +15,7 @@ body {
 /* Header */
 header {
     background-color: #FF9E4F;
-    padding: 20px;
+    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,6 +24,23 @@ header {
 
 header h1 {
     font-size: 28px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adjusts space between image and text */
+}
+
+.logo img {
+    height: 28px;
+    width: auto; /* Maintains aspect ratio */
+}
+
+.logo h1 {
+    margin: 0; /* Removes default margin */
+    font-size: 24px; /* Adjust as needed */
+    color: #FFF; /* Adjust color as needed */
 }
 
 nav ul {
@@ -121,7 +138,7 @@ nav ul li a {
 
 /* Hero Section */
 #hero {
-    background-image: url('hero-image.jpg');
+    background-image: url('/front dog.jpg');
     background-position: 0px 100px;
     background-size: cover;
     background-position: center;
@@ -293,7 +310,9 @@ nav ul li a {
     text-align: center;
     transition: transform 0.3s ease;
     position: relative; /* Required for positioning the popup */
-    overflow: hidden; /* Ensures the info box stays within card boundaries */
+    overflow: visible; /* Ensures the info box stays within card boundaries */
+    z-index: 1;
+    transition: z-index 0s 0.3s;
 }
 
 .pet-card:hover {
@@ -332,30 +351,36 @@ nav ul li a {
 }
 
 .pet-card button:hover {
+    z-index: 100;
     background-color: #E85A2D;
 }
 
-/* Info box styling */
 .pet-card .info-box {
     display: none; /* Initially hidden */
     position: absolute;
-    bottom: 10px;
     left: 50%;
+    top: 5%;
     transform: translateX(-50%);
     width: 90%;
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    background-color: rgba(235, 131, 23, 1.0);
     color: white;
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    opacity: 0; /* Start with hidden opacity */
+    opacity: 0;
     transition: opacity 0.3s ease;
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.pet-card .info-box h4 {
+    color: #FFFFFF;
+    margin: 5px 0;
 }
 
 /* Show info box when pet card is hovered */
 .pet-card:hover .info-box {
     display: block;
-    opacity: 1; /* Fade in when hovered */
+    opacity: 1;
 }
 
 
@@ -490,6 +515,7 @@ nav ul li a {
     background-color: #FFFFFF;
     padding: 50px 20px;
     text-align: center;
+    overflow: hidden;
 }
 
 #testimonials h3 {
@@ -498,11 +524,16 @@ nav ul li a {
     margin-bottom: 30px;
 }
 
+.testimonial-container {
+    overflow: hidden;
+    width: 100%;
+}
+
 .testimonial-gallery {
     display: flex;
-    overflow-x: auto;
     gap: 20px;
-    padding: 20px 0; 
+    padding: 20px 0;
+    animation: scroll 40s linear infinite;
 }
 
 .testimonial-card {
@@ -526,6 +557,15 @@ nav ul li a {
     color: #4A4A4A;
 }
 
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-300px * 3 - 20px * 3));
+    }
+}
+
 /* Contact Section */
 #contact {
     background-color: #FFF5E6;
@@ -547,3 +587,13 @@ nav ul li a {
 .contact-info p {
     margin-bottom: 10px;
 }
+
+footer {
+    background-color: #E85A2D;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+
