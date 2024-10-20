@@ -31,9 +31,6 @@
 
     <!-- Hero Section -->
     <section id="hero" class="parallax">
-        <div class="section-wrapper">
-            
-        </div>
         <div class="content">
             <h2>Find Your New Best Friend!</h2>
             <button onclick="scrollToSection('browse-pets')">Browse Pets</button>
@@ -65,12 +62,14 @@
                                 </div>
                             </div>
                         </div>
-                        
+                            
                         <button onclick="scrollToSection('browse-pets')">See All Pets</button>
                     </section>
                 </div>
-            </div>    
-        
+            </div>
+        </div>
+            
+        <div class="section-wrapper">
             <!-- Browse Pets Section -->
             <div class="center-container">
                 <div class="child-element">
@@ -88,15 +87,16 @@
                                 <option value="young">Young</option>
                                 <option value="adult">Adult</option>
                                 <option value="senior">Senior</option>
-                            </select>
+                                </select>
                         </div>
                     </section>
+                    <hr id="browse-pets-separator">
                     <div id="pets-list">
                         <!-- Pet cards will be dynamically added here -->
                     </div>
                 </div>
             </div>
-        </div>
+        </div>        
     </section>
     <!-- Featured Pets Section -->
     

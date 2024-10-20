@@ -10,12 +10,12 @@ function toggleMenu() {
 function addPetCards() {
     const petsList = document.getElementById('pets-list');
     const pets = [
-        { name: 'Rocky', type: 'Dog', breed: 'Labrador', age: '3 years', image: 'images/rocky.jpg' },
-        { name: 'Whiskers', type: 'Cat', breed: 'Siamese', age: '2 years', image: 'images/whiskers.jpg' },
-        { name: 'Buddy', type: 'Dog', breed: 'Golden Retriever', age: '5 years', image: 'images/buddy.jpg' },
-        { name: 'Mittens', type: 'Cat', breed: 'Persian', age: '4 years', image: 'images/mittens.jpg' },
-        { name: 'Rex', type: 'Dog', breed: 'German Shepherd', age: '6 years', image: 'images/rex.jpg' },
-        { name: 'Fluffy', type: 'Cat', breed: 'Maine Coon', age: '1 year', image: 'images/fluffy.jpg' }
+        { name: 'Rocky', type: 'Dog', breed: 'Labrador', age: '3 years', image: 'images/rocky.jpg', info: 'Playful and friendly dog!' },
+        { name: 'Whiskers', type: 'Cat', breed: 'Siamese', age: '2 years', image: 'images/whiskers.jpg', info: 'Loves cuddles and quiet places!' },
+        { name: 'Buddy', type: 'Dog', breed: 'Golden Retriever', age: '5 years', image: 'images/buddy.jpg', info: 'Great with kids and friendly!' },
+        { name: 'Mittens', type: 'Cat', breed: 'Persian', age: '4 years', image: 'images/mittens.jpg', info: 'Charming and curious!' },
+        { name: 'Rex', type: 'Dog', breed: 'German Shepherd', age: '6 years', image: 'images/rex.jpg', info: 'Loyal and protective!' },
+        { name: 'Fluffy', type: 'Cat', breed: 'Maine Coon', age: '1 year', image: 'images/fluffy.jpg', info: 'Loves playtime and attention!' }
     ];
 
     pets.forEach(pet => {
@@ -27,9 +27,14 @@ function addPetCards() {
             <p>${pet.breed}</p>
             <p>${pet.age}</p>
             <button onclick="adoptPet('${pet.name}')">Adopt Me</button>
+            <div class="info-box">${pet.info}</div>
         `;
         petsList.appendChild(petCard);
     });
+}
+
+function adoptPet(petName) {
+    alert(`Thank you for your interest in adopting ${petName}! Please contact us to proceed with the adoption process.`);
 }
 
 function adoptPet(petName) {

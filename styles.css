@@ -56,6 +56,14 @@ nav ul li a {
     transition: all 0.3s ease;
 }
 
+.section-wrapper {
+    background-color: white; /* Different background for the inner wrapper */
+    border-radius: 15px; /* Rounded corners for the wrapper */
+    padding: 50px; /* Padding inside the wrapper */
+    margin: 0 auto; /* Center the wrapper horizontally */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for some depth */
+}
+
 @media (max-width: 768px) {
     nav ul {
         display: none;
@@ -105,7 +113,6 @@ nav ul li a {
 .child-element {
     display: flex;
     flex-direction: column;
-    max-width: 1200px;
     width: 100%;
     background-color: #FFF5E6;
     border-radius: 10px;
@@ -114,18 +121,23 @@ nav ul li a {
 
 /* Hero Section */
 #hero {
-    background-image: url('images/hero.jpg');
+    background-image: url('hero-image.jpg');
+    background-position: 0px 100px;
     background-size: cover;
     background-position: center;
-    height: 500px;
-    color: white;
+    height: 100vh;
+    color: #ffffff;
+    text-shadow: 
+        1px 1px 0px #E85A2D,   /* Right and bottom shadow */
+        -1px -1px 0px #E85A2D, /* Left and top shadow */
+        1px -1px 0px #E85A2D,  /* Right and top shadow */
+        -1px 1px 0px #E85A2D;
     text-align: center;
-    padding-top: 150px;
+    align-content: center;
 }
 
 #hero h2 {
     font-size: 48px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 #hero button {
@@ -144,10 +156,29 @@ nav ul li a {
 }
 
 /* Featured Pets Section */
+#pets-display {
+    background-color: #E85A2D;
+    padding: 50px;
+    padding-bottom: 20px;
+}
+
+#pets-display .section-wrapper{
+    background-color: #ffffff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 50px;
+    box-shadow: none;
+}
+
+#pets-display .center-container{
+    background-color: white;
+    justify-content: center;
+}
+
 #featured {
     text-align: center;
-    padding: 50px 0;
-    background-color: #FFF5E6;
+    padding: 10px 0;
+    background-color: #ffffff;
 }
 
 #featured h3 {
@@ -156,6 +187,7 @@ nav ul li a {
 }
 
 .pets-container {
+    background-color: #FFFFFF;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -213,7 +245,7 @@ nav ul li a {
 /* Browse Pets Section */
 #browse-pets {
     padding: 50px 50px 0px 50px;
-    background-color: #FFF5E6;
+    background-color: white;
 }
 
 #browse-pets h3 {
@@ -221,6 +253,10 @@ nav ul li a {
     color: #FF6B35;
     text-align: center;
     margin-bottom: 30px;
+}
+
+#browse-pets-separator {
+    color: #FF6B35;
 }
 
 .filter-options {
@@ -241,10 +277,11 @@ nav ul li a {
 
 #pets-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 30px;
-    justify-content: center;
-    padding: 60px;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    row-gap: 30px;
+    background-color: #FFFFFF;
+    justify-items: center;
+    padding: 50px;
     box-sizing: border-box;
 }
 
@@ -255,6 +292,8 @@ nav ul li a {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s ease;
+    position: relative; /* Required for positioning the popup */
+    overflow: hidden; /* Ensures the info box stays within card boundaries */
 }
 
 .pet-card:hover {
@@ -296,13 +335,33 @@ nav ul li a {
     background-color: #E85A2D;
 }
 
-@media (max-width: 768px) {
-    .center-container {
-        padding: 10px;
-    }
+/* Info box styling */
+.pet-card .info-box {
+    display: none; /* Initially hidden */
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    opacity: 0; /* Start with hidden opacity */
+    transition: opacity 0.3s ease;
+}
 
+/* Show info box when pet card is hovered */
+.pet-card:hover .info-box {
+    display: block;
+    opacity: 1; /* Fade in when hovered */
+}
+
+
+@media (max-width: 752px){
     #pets-list {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-template-columns: 1fr;
     }
 }
 
@@ -312,13 +371,7 @@ nav ul li a {
     text-align: center;
 }
 
-.section-wrapper {
-    background-color: white; /* Different background for the inner wrapper */
-    border-radius: 15px; /* Rounded corners for the wrapper */
-    padding: 50px; /* Padding inside the wrapper */
-    margin: 0 auto; /* Center the wrapper horizontally */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for some depth */
-}
+
 
 #donate h3 {
     font-size: 36px;
@@ -494,5 +547,3 @@ nav ul li a {
 .contact-info p {
     margin-bottom: 10px;
 }
-
-
