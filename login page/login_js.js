@@ -1,80 +1,43 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const loginForm = document.getElementById('loginForm');
-    const signupForm = document.getElementById('signupForm');
-    const loginBtn = document.getElementById('loginBtn');
-    const signupBtn = document.getElementById('signupBtn');
-    const formTitle = document.getElementById('formTitle');
-    const signupCategory = document.getElementById('signupCategory');
-    const additionalFields = document.getElementById('additionalFields');
+document.addEventListener('DOMContentLoaded', (event) => {
+    const signUpButton = document.getElementById('signUp');
+    const signInButton = document.getElementById('signIn');
+    const container = document.getElementById('container');
 
-    loginBtn.addEventListener('click', () => {
-        loginForm.style.display = 'block';
-        signupForm.style.display = 'none';
-        loginBtn.classList.add('active');
-        signupBtn.classList.remove('active');
-        formTitle.textContent = 'Login';
+    signUpButton.addEventListener('click', () => {
+        container.classList.add("right-panel-active");
     });
 
-    signupBtn.addEventListener('click', () => {
-        loginForm.style.display = 'none';
-        signupForm.style.display = 'block';
-        loginBtn.classList.remove('active');
-        signupBtn.classList.add('active');
-        formTitle.textContent = 'Sign Up';
+    signInButton.addEventListener('click', () => {
+        container.classList.remove("right-panel-active");
     });
 
-    signupCategory.addEventListener('change', () => {
-        const category = signupCategory.value;
-        additionalFields.innerHTML = ''; // Clear previous fields
+    // Add some liveliness with animation
+    const animateCSS = (element, animation, prefix = 'animate__') =>
+        new Promise((resolve, reject) => {
+            const animationName = `${prefix}${animation}`;
+            const node = document.querySelector(element);
 
-        switch(category) {
-            case 'customer':
-                additionalFields.innerHTML = `
-                    <div class="form-group">
-                        <label for="customerPreference">Pet Preference</label>
-                        <input type="text" id="customerPreference" required>
-                    </div>
-                `;
-                break;
-            case 'petowner':
-                additionalFields.innerHTML = `
-                    <div class="form-group">
-                        <label for="petType">Pet Type</label>
-                        <input type="text" id="petType" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="petAge">Pet Age</label>
-                        <input type="number" id="petAge" required>
-                    </div>
-                `;
-                break;
-            case 'veteran':
-                additionalFields.innerHTML = `
-                    <div class="form-group">
-                        <label for="serviceDetails">Service Details</label>
-                        <textarea id="serviceDetails" required></textarea>
-                    </div>
-                `;
-                break;
-            case 'ngo':
-                additionalFields.innerHTML = `
-                    <div class="form-group">
-                        <label for="ngoName">NGO Name</label>
-                        <input type="text" id="ngoName" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="ngoDescription">NGO Description</label>
-                        <textarea id="ngoDescription" required></textarea>
-                    </div>
-                `;
-                break;
-        }
-    });
+            node.classList.add(`${prefix}animated`, animationName);
 
-    signupForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        // Here you would typically send the form data to your server
-        console.log('Form submitted');
-        // You can access all form fields here, including the additional fields
+            function handleAnimationEnd(event) {
+                event.stopPropagation();
+                node.classList.remove(`${prefix}animated`, animationName);
+                resolve('Animation ended');
+            }
+
+            node.addEventListener('animationend', handleAnimationEnd, {once: true});
+        });
+
+    // Animate elements on page load
+    animateCSS('.container', 'fadeIn');
+    animateCSS('.social-container', 'bounceIn');
+    animateCSS('.user-type', 'pulse');
+
+    // Add hover animation to buttons
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(button => {
+        button.addEventListener('mouseover', () => {
+            animateCSS(button, 'pulse');
+        });
     });
 });
