@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Sign Up - Adopt a Pet</title>
+    <link rel="stylesheet" href="login_css.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <div class="form-header">
+                <h2 id="formTitle">Login</h2>
+                <div class="toggle-buttons">
+                    <button id="loginBtn" class="active">Login</button>
+                    <button id="signupBtn">Sign Up</button>
+                </div>
+            </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="submit-btn">Login</button>
+                <a href="#" class="forgot-password">Forgot Password?</a>
+            </form>
+            <form id="signupForm" style="display: none;">
+                <div class="form-group">
+                    <label for="signupCategory">I am a:</label>
+                    <select id="signupCategory" required>
+                        <option value="" disabled selected>Select category</option>
+                        <option value="customer">Customer</option>
+                        <option value="petowner">Pet Owner</option>
+                        <option value="veteran">Veteran</option>
+                        <option value="ngo">NGO</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="signupName">Full Name</label>
+                    <input type="text" id="signupName" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupConfirmPassword">Confirm Password</label>
+                    <input type="password" id="signupConfirmPassword" required>
+                </div>
+                <div id="additionalFields"></div>
+                <button type="submit" class="submit-btn">Sign Up</button>
+            </form>
+        </div>
+        <div class="image-container">
+            <div class="image-wrapper">
+                <img src="cute pet.jpg" alt="Cute pet" class="pet-image">
+            </div>
+        </div>
+    </div>
+    <script src="login_js.js"></script>
+</body>
+</html>
